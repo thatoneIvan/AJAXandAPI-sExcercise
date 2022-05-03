@@ -72,6 +72,8 @@ fourth.append(p7);
 // 4a
 async function tvMazeFunc(){
     try {
+        // the link was in the lesson channel
+        // https://www.tvmaze.com/api then look for episodeByNum
         const  episodeByNum = await axios.get(`https://api.tvmaze.com/shows/38963/episodebynumber?season=2&number=8`);
         p7.innerText = episodeByNum.data.name;
     } catch (err) {
@@ -80,3 +82,42 @@ async function tvMazeFunc(){
         
 }
 tvMazeFunc();
+// Make sure to review API and how to read them.
+
+// this was confusing most definitely something i need to work on...
+
+
+
+// BONUS
+// 5
+const body = document.querySelector(`body`);
+axios.get(`https://pokeapi.co/api/v2/pokemon/snorlax`)
+.then(res => {
+    const img = document.createElement(`img`);
+    img.src = res.data.sprites.front_default;
+    body.append(img);
+})
+.catch (err => {
+    console.log(err);
+    alert(`You did NOT catch that Pokemon!!!`)
+    }
+);
+
+pokePic();
+
+// // 6
+// const body = document.querySelector(`body`);
+// async function bonusSix (){
+//     try {
+//         const moviePoster = await axios.get(`http://img.omdbapi.com/?apikey=[7a60da0]&`);
+//         const poster = document.createElement(`img`);
+//         poster.src = moviePoster.data.poster;
+//         body.append(poster);
+//     }   catch (err) {
+//         console.log(err);
+//     }
+// }
+// bonusSix();
+
+
+// 7a60da0
